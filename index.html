@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LET Drills - General Education (English Set 1)</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+h1, h2 {
+    text-align: center;
+}
+.question {
+    margin-bottom: 15px;
+}
+.options label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.correct {
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 2px 5px;
+}
+.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 2px 5px;
+}
+.submit-btn {
+    text-align: center;
+    margin: 20px 0;
+}
+button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background: #0056b3;
+}
+.result {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+}
+.pass {
+    background-color: #d4edda;
+    color: #155724;
+}
+.fail {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+.explanation {
+    font-size: 14px;
+    background: #f1f1f1;
+    padding: 10px;
+    margin-top: 5px;
+    border-left: 4px solid #ccc;
+}
+.advertisement {
+    margin: 30px 0;
+    padding: 15px;
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    text-align: center;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>LET Drills</h1>
+    <p><strong>Created by:</strong> LEPT Learning Essentials</p>
+    <p><strong>Part 1: General Education</strong></p>
+    <p><strong>1. Intellectual Competencies</strong></p>
+    <p><strong>1.1. English (Set 1)</strong></p>
+    <p><strong>20-Item Test</strong> | Passing Score: 15</p>
+
+    <div class="advertisement">
+        📢 Advertisement: Prepare for LET with our Premium Reviewer – Available Now!
+    </div>
+
+    <p>Directions: Read the following questions and choose the best answer possible.</p>
+
+    <form id="quizForm">
+        <!-- Questions -->
+    </form>
+
+    <div class="submit-btn">
+        <button type="button" onclick="checkAnswers()">Submit Answers</button>
+    </div>
+
+    <div id="resultContainer" class="result"></div>
+
+  <div class="advertisement">
+    📢 <strong>Support your LET review!</strong><br>
+  <div class="social-link">
+    <p>Follow us on <a href="https://www.facebook.com/LEPTLearningEssentials/" target="_blank" rel="noopener noreferrer">Facebook</a> for more updates!</p>
+    Check out our latest LET REVIEWER BUNDLED FILES. AVAIL NOW for only P50. Message us today! ❤️📚
+    <img src="images/advertisement.png" alt="LET REVIEWER BUNDLED FILES" style="width: 100%; max-width: 400px; display: block; margin: 0 auto 15px auto; border-radius: 5px;">
+  </div>
+
+<script>
+// Questions Array
+const quizData = [
+    {q: "She sang _____ during the school program.", options: ["all together", "altogether", "with one another", "all"], correct: "B", explanation: "Altogether means 'entirely' or 'completely.'"},
+    {q: "Which idiomatic expression is appropriate? What I like about the principal is that he _________.", options: ["bear the brunt", "is bent out of shape", "is close to home", "calls a spade a spade"], correct: "D", explanation: "Calls a spade a spade = speaks honestly and directly."},
+    {q: "Michelle was born ____ the 16th of May.", options: ["on", "at", "in", "during"], correct: "A", explanation: "We use 'on' for specific dates."},
+    {q: "Learning a new language help to improve memory.", options: ["'Learning' – should be 'Learned'", "'help' – should be 'helps'", "'to improve' – should be 'improving'", "'memory' – should be 'memorize'"], correct: "B", explanation: "Should be 'helps' – subject-verb agreement."},
+    {q: "Several framed paintings were ____ on the gallery wall.", options: ["hang", "hanging", "hung", "hangs"], correct: "C", explanation: "'Hung' is the correct past participle."},
+    {q: "The broken vase was lying on the floor. How is 'broken' used?", options: ["Noun", "Verb", "Adjective", "Adverb"], correct: "C", explanation: "'Broken' describes the vase, so it's an adjective."},
+    {q: "She is very good ___ solving math problems.", options: ["at", "in", "on", "with"], correct: "A", explanation: "We say 'good at' to indicate skill."},
+    {q: "Identify the error: Did your supervisor approved of your application for leave?", options: ["Did", "approved", "supervisor", "leave"], correct: "B", explanation: "After 'Did', the verb should be base form: approve."},
+    {q: "One of the scholars who ___ insights in the forum is Michael.", options: ["share", "shares", "is sharing", "was sharing"], correct: "A", explanation: "'Who' refers to 'scholars' (plural), so 'share'."},
+    {q: "Neither the sisters nor Maria presented ___ prepared speech.", options: ["her", "their", "them", "your"], correct: "A", explanation: "In 'Neither...nor', pronoun agrees with nearest noun (Maria → her)."},
+    {q: "Which does not contain a dangling or misplaced modifier?", options: ["Running to catch the bus, my bag strap broke suddenly.", "Covered in chocolate, the children enjoyed the cake.", "While reading the book, the phone rang loudly.", "Painted bright red, the fence stood out in the garden."], correct: "D", explanation: "D is correct; others have misplaced modifiers."},
+    {q: "Which of the following words has a silent letter?", options: ["knee", "neat", "need", "neatest"], correct: "A", explanation: "'Knee' has a silent K."},
+    {q: "Which is not part of the three nasal consonants in English?", options: ["[m]", "[n]", "[ŋ]", "[s]"], correct: "D", explanation: "[s] is not a nasal consonant."},
+    {q: "What is referred to as the production of speech sounds by movement of the speech organs?", options: ["articulation", "aspiration", "consonants", "vowels"], correct: "A", explanation: "Articulation = production of speech sounds via speech organs."},
+    {q: "Which sentence is in the active voice?", options: ["The cake was eaten by the children.", "The report was submitted by Maria.", "The teacher praised the students for their hard work.", "The window was broken by the strong wind."], correct: "C", explanation: "Subject (teacher) performs the action."},
+    {q: "If she had studied harder, she ____ the exam.", options: ["will pass", "would pass", "will have passed", "would have passed"], correct: "D", explanation: "Third conditional: If + past perfect → would have + past participle."},
+    {q: "The students never cheated on the examination, ______?", options: ["is there", "didn’t they", "do they", "did they"], correct: "D", explanation: "Negative main clause → positive question tag."},
+    {q: "Mathematics ____ to be one of the least popular subjects among students.", options: ["appear", "appears", "appeared", "has appears"], correct: "B", explanation: "'Mathematics' is singular → appears."},
+    {q: "My brother enjoys cooking on weekends. The gerund is _____.", options: ["My brother", "enjoys", "cooking", "weekends"], correct: "C", explanation: "'Cooking' is an -ing verb form used as a noun."},
+    {q: "Which of the following does not have the same meaning as the other sentences?", options: ["The lessons about health and nutrition are what every student should learn from this course.", "This course contains what every student should learn about health and nutrition.", "Contained in this course are lessons on health and nutrition that every student should learn.", "What every student should learn about health and nutrition is included in this course."], correct: "A", explanation: "A slightly shifts focus compared to others."}
+];
+
+// Load quiz into form
+const quizForm = document.getElementById("quizForm");
+quizData.forEach((item, index) => {
+    let qHTML = `<div class="question">
+        <p><strong>${index + 1}. ${item.q}</strong></p>
+        <div class="options">`;
+    const letters = ["A", "B", "C", "D"];
+    item.options.forEach((opt, i) => {
+        qHTML += `<label><input type="radio" name="q${index}" value="${letters[i]}"> ${letters[i]}) ${opt}</label>`;
+    });
+    qHTML += `</div></div>`;
+    quizForm.innerHTML += qHTML;
+});
+
+// Check answers
+function checkAnswers() {
+    let score = 0;
+    let output = "";
+    quizData.forEach((item, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        const correctLetter = item.correct;
+        const correctOption = item.options[["A","B","C","D"].indexOf(correctLetter)];
+
+        if (selected) {
+            if (selected.value === correctLetter) {
+                selected.parentElement.classList.add("correct");
+                score++;
+                output += `<p class="correct">Q${i+1}: Correct</p><div class="explanation">${item.explanation}</div>`;
+            } else {
+                selected.parentElement.classList.add("incorrect");
+                const correctInput = document.querySelector(`input[name="q${i}"][value="${correctLetter}"]`);
+                correctInput.parentElement.classList.add("correct");
+                output += `<p class="incorrect">Q${i+1}: Incorrect. Correct answer: ${correctLetter}) ${correctOption}</p><div class="explanation">${item.explanation}</div>`;
+            }
+        } else {
+            output += `<p class="incorrect">Q${i+1}: No answer. Correct: ${correctLetter}) ${correctOption}</p><div class="explanation">${item.explanation}</div>`;
+        }
+    });
+
+    const resultContainer = document.getElementById("resultContainer");
+    const status = score >= 15 ? "pass" : "fail";
+    resultContainer.className = `result ${status}`;
+    resultContainer.innerHTML = `<h3>Your Score: ${score} / ${quizData.length}</h3>
+    <h4>Status: ${status === 'pass' ? 'PASS' : 'FAIL'}</h4>
+    ${output}`;
+
+    document.querySelector(".submit-btn button").disabled = true;
+}
+</script>
+
+</body>
+</html>
